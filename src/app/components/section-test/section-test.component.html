@@ -1,0 +1,8 @@
+<section class="container__test">
+  <app-progressbar *ngFor="let data of datas" [data]="data"></app-progressbar>
+  <div class="container__test-btn">
+    <button (click)="handleReset()">Remettre à zéro les compteurs</button>
+    <button (click)="incrementBy(5)">Ajouter 5%</button>
+    <button (click)="incrementBy(10)">Ajouter 10%</button>
+  </div>
+</section>

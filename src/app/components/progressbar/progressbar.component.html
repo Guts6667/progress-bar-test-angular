@@ -1,0 +1,12 @@
+<div *ngIf="data" class="container__progressbar" >
+  <div class="container__progressbar-title">
+    <span>{{data.title}}</span>
+  </div>
+  <div class="container__progressbar-wrapper">
+    <span>{{data.progress}}</span>
+    <div class="box-progressbar">
+      <span
+        [ngStyle]="{'width' : progressBarStyle.width ,  'transition' : progressBarStyle.transition, 'background-color': progressBarStyle.backgroundColor}"></span>
+    </div>
+  </div>
+</div>
