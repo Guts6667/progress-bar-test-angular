@@ -6,50 +6,35 @@ import { Component } from '@angular/core';
   styleUrls: ['./section-test.component.scss'],
 })
 export class SectionTestComponent {
-  datas: { progress: number; title: string; color: string }[] = [
+  public datas: { progress: number; title: string; color: string }[] = [
     {
-      progress: 50,
+      progress: 25,
       title: 'Initialisation de la phase de développement',
       color: '#7160E8',
     },
     {
-      progress: 25,
+      progress: 50,
       title: 'Avancement de la phase de développement',
       color: '#7160E8',
     },
   ];
-  colors = {
+  public colors = {
     color1: '#7160E8',
     color2: '#60ADE8',
     color3: '#60E8B6',
     color4: '#30DB63',
   };
 
-  handleReset() {
+  public handleReset() {
     this.datas.map((data) => {
       data.progress = 0;
       console.log(data);
     });
   }
-  incrementBy(amount: number) {
-    this.datas.map((data) => {
-      let total = data.progress + amount
-      if (total <= 100) {
-        data.progress += amount;
-        console.log(data);
-        if (data.progress < 25) {
-          data.color = this.colors.color1;
-        }
-        if (data.progress > 25) {
-          data.color = this.colors.color2;
-        }
-        if (data.progress > 50) {
-          data.color = this.colors.color3;
-        }
-        if (data.progress > 75) {
-          data.color = this.colors.color4;
-        }
-      }
-    });
+  public incrementBy(amount: number) {
+   this.datas =  [...this.datas.map(item => {
+    item.progress = item.progress + 10;
+    return item;
+   })]
   }
 }

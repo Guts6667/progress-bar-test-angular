@@ -1,4 +1,4 @@
-<div *ngIf="data" class="container__progressbar" >
+<div *ngIf="data " class="container__progressbar" >
   <div class="container__progressbar-title">
     <span>{{data.title}}</span>
   </div>
@@ -6,7 +6,8 @@
     <span>{{data.progress}}</span>
     <div class="box-progressbar">
       <span
-        [ngStyle]="{'width' : progressBarStyle.width ,  'transition' : progressBarStyle.transition, 'background-color': progressBarStyle.backgroundColor}"></span>
+      [style]="'width:'+data.progress+'%; background:'+data.color + ';transition: width .26s ease-in-out'"></span>
+
     </div>
   </div>
 </div>
