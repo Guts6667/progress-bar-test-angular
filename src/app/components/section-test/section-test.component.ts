@@ -18,23 +18,38 @@ export class SectionTestComponent {
       color: '#7160E8',
     },
   ];
-  public colors = {
+  colors = {
     color1: '#7160E8',
     color2: '#60ADE8',
     color3: '#60E8B6',
     color4: '#30DB63',
   };
 
-  public handleReset() {
+  handleReset() {
     this.datas.map((data) => {
       data.progress = 0;
       console.log(data);
     });
   }
-  public incrementBy(amount: number) {
-   this.datas =  [...this.datas.map(item => {
-    item.progress = item.progress + 10;
-    return item;
-   })]
+  incrementBy(amount: number) {
+   this.datas =  this.datas.map((data) => {
+      let total = data.progress + amount
+      if (total <= 100) {
+        data.progress += amount;
+        if (data.progress < 25) {
+          data.color = this.colors.color1;
+        }
+        if (data.progress > 25) {
+          data.color = this.colors.color2;
+        }
+        if (data.progress > 50) {
+          data.color = this.colors.color3;
+        }
+        if (data.progress > 75) {
+          data.color = this.colors.color4;
+        }
+      }
+      return data
+    });
   }
 }
